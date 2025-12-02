@@ -1,253 +1,112 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>エンジニア ポートフォリオ - [Kawakami]</title>
-    <!-- Tailwind CSS CDNを読み込み -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Interフォントを適用 */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc; /* ライトグレーの背景 */
-        }
-        /* セクション共通のパディング */
-        section {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-        /* スクロール時のスムーズな動き */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <title>Unity エンジニア ポートフォリオ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
-<body class="text-gray-800">
 
-    <!-- ナビゲーションバー -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- ロゴ/名前 -->
-            <a href="#home" class="text-2xl font-bold text-indigo-600 hover:text-indigo-800 transition duration-300">
-                [kawakami]
-            </a>
-            <!-- デスクトップ用メニュー -->
-            <div class="hidden md:flex space-x-6">
-                <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">自己紹介</a>
-                <a href="#skills" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">スキル</a>
-                <a href="#projects" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">プロジェクト</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">連絡先</a>
+<body>
+    <nav class="navbar">
+        <div class="logo">UNITY DEV</div>
+        <ul class="nav-links">
+            <li><a href="#hero">ホーム</a></li>
+            <li><a href="#about">私について</a></li>
+            <li><a href="#projects">作品</a></li>
+            <li><a href="#contact">コンタクト</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <img src="images/hero_new.png" alt="Logo" class="hero-logo">
+                <h1><span class="highlight">Unity</span>で世界を創る</h1>
+                <p class="typing-effect">ゲーム開発者</p>
+                <a href="#projects" class="cta-button">作品を見る</a>
             </div>
-            <!-- モバイル用メニューボタン (今回はシンプル化のため省略) -->
-        </nav>
-    </header>
+        </section>
 
-    <!-- 1. ヒーローセクション (自己紹介/Home) -->
-    <section id="home" class="bg-gray-50 py-20 sm:py-24 lg:py-32">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
-            <!-- テキストコンテンツ -->
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <p class="text-indigo-600 text-lg font-semibold mb-3">Hello, World!</p>
-                <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
-                    私は<span class="text-indigo-600">[ああああああ]</span>エンジニアです
-                </h1>
-                <p class="text-xl text-gray-600 mb-8 max-w-lg">
-                    [具体的な経験年数]年の経験を持つソフトウェアエンジニア。モダンなウェブ技術とユーザーセントリックな設計に情熱を注いでいます。
-                </p>
-                <a href="#projects" class="inline-block bg-indigo-600 text-white text-lg font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
-                    プロジェクトを見る
-                </a>
+        <section id="about" class="section animate-on-scroll">
+            <h2>私について</h2>
+            <div class="about-content">
+                <p>Unity歴2年のゲーム開発者です。主にゲームプレイプログラミングを得意としています。</p>
+                <p>このポートフォリオサイトでは、これまでに制作した作品を紹介しています。プレイヤーに楽しんでもらえるゲーム作りを目指して日々学習しています。</p>
             </div>
-            <!-- アバター/画像プレースホルダー -->
-            <div class="md:w-1/3">
-                <div class="w-64 h-64 bg-indigo-200 rounded-full flex items-center justify-center shadow-2xl border-4 border-white mx-auto">
-                    <span class="text-indigo-600 text-4xl font-bold">A. I.</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 2. 自己紹介セクション (About) -->
-    <section id="about" class="bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12">自己紹介</h2>
-            <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
-                <p>
-                    私は[あなたの専攻や分野]に焦点を当てたソフトウェア開発者です。特に、ユーザーが直感的に操作できる、高速でスケーラブルなアプリケーションの開発を得意としています。
-                </p>
-                <p>
-                    これまでに[簡単な実績の例、例: Eコマースプラットフォームのバックエンド開発]や、[別の実績の例、例: レスポンシブなシングルページアプリケーションの構築]などに携わってきました。新しい技術への探求心が強く、常にベストプラクティスを追求しています。
-                </p>
-                <p>
-                    私の目標は、技術を通じて人々の生活をより豊かにすることです。オープンソースへの貢献や、新しいチャレンジを歓迎します。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. スキルセクション -->
-    <section id="skills" class="bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12">スキル & テクノロジー</h2>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- スキルカテゴリ 1: フロントエンド -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-indigo-600">フロントエンド</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>React / Vue.js</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>JavaScript / TypeScript</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>HTML5 / CSS3 (Tailwind)</li>
-                    </ul>
-                </div>
-
-                <!-- スキルカテゴリ 2: バックエンド -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-indigo-600">バックエンド</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Node.js (Express)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Python (Django/Flask)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Go / Rust (興味あり)</li>
-                    </ul>
-                </div>
-
-                <!-- スキルカテゴリ 3: データベース/インフラ -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-indigo-600">DB / インフラ</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>PostgreSQL / MongoDB</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Docker / Kubernetes</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>AWS / Google Cloud</li>
-                    </ul>
-                </div>
-
-                <!-- スキルカテゴリ 4: その他 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-indigo-600">その他</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Git / GitHub</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>アジャイル開発 (Scrum)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 14.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>テスト駆動開発 (TDD)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. プロジェクトセクション -->
-    <section id="projects" class="bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16">主要プロジェクト</h2>
-
-            <div class="space-y-16">
-                <!-- プロジェクト 1 -->
-                <div class="flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-xl shadow-lg">
-                    <!-- 画像プレースホルダー -->
-                    <div class="md:w-1/3 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                        <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-                            プロジェクト画像 1
+        <section id="projects" class="section">
+            <h2 class="animate-on-scroll">作品</h2>
+            <div class="projects-grid">
+                <a href="project1.html" class="project-card-link animate-on-scroll delay-100">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;"></div>
+                        <div class="project-info">
+                            <h3>サイバーパンク RPG</h3>
+                            <p>Unity HDRPで構築された未来的なRPG。</p>
+                            <div class="tags"><span>Unity</span><span>C#</span><span>HDRP</span></div>
                         </div>
                     </div>
-                    <!-- 説明 -->
-                    <div class="md:w-2/3">
-                        <h3 class="text-3xl font-bold text-indigo-600 mb-3">プロジェクト名 A: SaaS管理ダッシュボード</h3>
-                        <p class="text-gray-600 mb-4">
-                            フルスタック開発プロジェクト。ReactとNode.js (Express) を使用して、顧客データ、請求、分析を管理するためのシングルページアプリケーションを構築しました。認証にFirebaseを使用し、リアルタイム更新のためにWebSocketを導入しました。
-                        </p>
-                        <p class="text-sm font-semibold text-gray-500 mb-4">
-                            使用技術: React, TypeScript, Tailwind CSS, Node.js, PostgreSQL, Docker
-                        </p>
-                        <a href="https://github.com/[Your-Repo-1]" target="_blank" class="text-indigo-500 hover:text-indigo-700 font-medium transition duration-300 flex items-center">
-                            GitHubで見る
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0l-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- プロジェクト 2 -->
-                <div class="flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-xl shadow-lg">
-                    <!-- 画像プレースホルダー -->
-                    <div class="md:w-1/3 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                        <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-                            プロジェクト画像 2
+                </a>
+                <a href="project2.html" class="project-card-link animate-on-scroll delay-200">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;"></div>
+                        <div class="project-info">
+                            <h3>VR スペースシューター</h3>
+                            <p>Oculus Quest向けの没入型宇宙戦闘ゲーム。</p>
+                            <div class="tags"><span>Unity</span><span>VR</span><span>Oculus SDK</span></div>
                         </div>
                     </div>
-                    <!-- 説明 -->
-                    <div class="md:w-2/3">
-                        <h3 class="text-3xl font-bold text-indigo-600 mb-3">プロジェクト名 B: 機械学習モデルデプロイメント</h3>
-                        <p class="text-gray-600 mb-4">
-                            Pythonで構築した機械学習モデルをREST APIとしてデプロイ。FlaskとDockerを使用し、GCP (Google Cloud Platform) のKubernetes Engine上にサービスをホストしました。レイテンシを最小限に抑えるための最適化を実施。
-                        </p>
-                        <p class="text-sm font-semibold text-gray-500 mb-4">
-                            使用技術: Python, Flask, Docker, Kubernetes, GCP, Pandas
-                        </p>
-                        <a href="https://github.com/[Your-Repo-2]" target="_blank" class="text-indigo-500 hover:text-indigo-700 font-medium transition duration-300 flex items-center">
-                            GitHubで見る
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0l-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. 連絡先セクション (Contact) -->
-    <section id="contact" class="bg-indigo-600">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
-            <h2 class="text-4xl font-bold mb-6">一緒に次のプロジェクトに取り組みませんか？</h2>
-            <p class="text-xl mb-10 opacity-90">
-                新しい機会、協力、または技術的なディスカッションをお待ちしています。
-            </p>
-
-            <div class="flex flex-col space-y-4 items-center">
-                <!-- メールアドレス -->
-                <div class="flex items-center space-x-3">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
-                    <span class="text-lg font-medium">[あなたのメールアドレス]@example.com</span>
-                </div>
-
-                <!-- フォーム (簡易版 - 実際にはバックエンドが必要です) -->
-                <a href="mailto:[あなたのメールアドレス]@example.com" class="bg-white text-indigo-600 text-lg font-semibold px-10 py-3 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105 mt-6">
-                    メールを送る
                 </a>
+                <a href="project3.html" class="project-card-link animate-on-scroll delay-300">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;"></div>
+                        <div class="project-info">
+                            <h3>モバイルパズルゲーム</h3>
+                            <p>100万ダウンロードを達成した中毒性のあるパズルゲーム。</p>
+                            <div class="tags"><span>Unity 2D</span><span>Mobile</span><span>Ads</span></div>
+                        </div>
+                    </div>
+                </a>
+                <a href="project4.html" class="project-card-link animate-on-scroll delay-400">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;"></div>
+                        <div class="project-info">
+                            <h3>マルチプレイヤー FPS</h3>
+                            <p>Photonを使用したリアルタイム対戦シューティング。</p>
+                            <div class="tags"><span>Unity</span><span>Photon</span><span>Multiplayer</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-                <!-- SNS/GitHubリンク -->
-                <div class="flex space-x-6 pt-8">
-                    <a href="https://github.com/[Your-GitHub]" target="_blank" class="text-white hover:text-indigo-300 transition duration-300">
-                        <!-- GitHub Icon (Inline SVG for simplicity) -->
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.887-.015-1.745-2.787.603-3.37-1.341-3.37-1.341-.454-1.157-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.951 0-1.091.39-1.984 1.029-2.687-.103-.253-.446-1.272.098-2.651 0 0 .84-.27 2.75 1.022.798-.222 1.644-.332 2.49-.336.845.004 1.691.114 2.49.336 1.91-1.292 2.75-1.022 2.75-1.022.546 1.379.202 2.398.1 2.651.64.703 1.029 1.596 1.029 2.687 0 3.848-2.339 4.691-4.566 4.935.359.313.674.922.674 1.855 0 1.338-.012 2.417-.012 2.747 0 .267.18.578.688.482C19.14 20.198 22 16.442 22 12.017 22 6.484 17.523 2 12 2z" clip-rule="evenodd"></path></svg>
-                    </a>
-                    <a href="https://linkedin.com/in/[Your-LinkedIn]" target="_blank" class="text-white hover:text-indigo-300 transition duration-300">
-                        <!-- LinkedIn Icon -->
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.529-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
+        <section id="contact" class="section animate-on-scroll">
+            <h2>コンタクト</h2>
+            <div class="contact-container">
+                <p>一緒に働きませんか？ご連絡をお待ちしています。</p>
+                <a href="mailto:hello@example.com" class="cta-button">メールを送る</a>
+                <div class="social-links">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- フッター -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            &copy; 2025 [あなたの名前]. All Rights Reserved. | このサイトはTailwind CSSで構築されています。
-        </div>
+    <footer>
+        <p>&copy; 2025 Unity Engineer Portfolio</p>
     </footer>
 
-    <!-- JavaScript for smooth scrolling (Tailwind utility classes handle most of the layout) -->
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                // Check if the link is not part of the contact section (e.g., mailto)
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
