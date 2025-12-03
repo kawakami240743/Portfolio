@@ -1,4 +1,3 @@
-
 :root {
     --bg-color: #202020;
     --surface-color: #383838;
@@ -29,6 +28,8 @@ body {
     color: var(--text-color);
     font-family: var(--font-main);
     line-height: 1.6;
+    /* 【修正1】横方向のオーバーフローを非表示にし、横スクロールを防止 */
+    overflow-x: hidden;
 }
 
 a {
@@ -87,7 +88,8 @@ ul {
 
 /* Sections */
 .section {
-    padding: 4rem 2rem;
+    /* 【修正2】モバイルでの横幅オーバーを防ぐため、左右のパディングを縮小 (2rem -> 1rem) */
+    padding: 4rem 1rem; 
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -112,7 +114,8 @@ h2 {
     align-items: center;
     justify-content: center;
     /* Center content */
-    padding: 0 10%;
+    /* 左右のパディングを10%から、モバイルでも安全な5%に修正 */
+    padding: 0 5%; 
     padding-top: 60px;
     /* Navbar height */
     text-align: center;
@@ -270,12 +273,11 @@ h2 {
         /* PCではアイコンとテキストを横並びにする */
         flex-direction: row;
         align-items: flex-start; /* アイコンとテキストの上端を揃える */
-        /* 【変更】gap: 4rem; から gap: 6rem; に変更し、間隔を広げる */
-        gap: 6rem; 
-        /* 【変更】最大幅を広げ、中央寄せをやめる。これにより、より右側に寄るスペースが生まれる */
+        /* 【修正】間隔を 6rem から 4rem に戻す */
+        gap: 4rem; 
+        /* 【修正】中央寄せに戻す */
         max-width: 1000px;
-        margin-left: auto;
-        margin-right: 0;
+        margin: 0 auto;
     }
 
     /* 【新規追加】PCでのプロフィールアイコンのサイズを大きくする */
@@ -284,8 +286,8 @@ h2 {
         height: 160px;
         order: 2; /* 順序を2にして右側に移動 */
         margin-bottom: 0;
-        /* 【新規追加】アイコンを右端に寄せるためにmargin-left: auto; を追加 */
-        margin-left: auto; 
+        /* 【修正】margin-left: auto; を削除 */
+        /* margin-left: auto; REMOVED */
         /* テキストとアイコンの比率を調整 */
         flex-shrink: 0;
     }
