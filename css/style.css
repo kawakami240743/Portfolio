@@ -15,9 +15,8 @@
     box-sizing: border-box;
 }
 
-/* * 【変更点1】
- * htmlの基本フォントサイズをさらに小さく調整し、スマホサイズでの一行表示を試みる。
- * 最小値を 10px に変更。
+/* * 【ベースフォント設定】
+ * 最小値10px + 0.4vw で、スマホでもPCでもレスポンシブにフォントサイズを調整
  */
 html {
     font-size: calc(10px + 0.4vw); 
@@ -28,7 +27,7 @@ body {
     color: var(--text-color);
     font-family: var(--font-main);
     line-height: 1.6;
-    /* 【修正1】横方向のオーバーフローを非表示にし、横スクロールを防止 */
+    /* 横スクロールを防止 */
     overflow-x: hidden;
 }
 
@@ -60,23 +59,21 @@ ul {
 .logo {
     font-family: var(--font-code);
     font-weight: 700;
-    /* 1.2remから1.1remに微調整 */
     font-size: 1.1rem; 
     color: var(--highlight-color);
 }
 
 .nav-links {
     display: flex;
-    gap: 0; /* gapを0にして、代わりにliのpaddingとborderで間隔を制御 */
+    gap: 0;
 }
 
-/* 【新規追加】ナビゲーションリンク間に区切り線を追加 */
+/* ナビゲーションリンク間に区切り線を追加 */
 .nav-links li {
-    padding: 0 1rem; /* リンク間のスペースを制御 */
-    border-right: 1px solid var(--surface-color); /* 区切り線 */
+    padding: 0 1rem;
+    border-right: 1px solid var(--surface-color);
 }
 
-/* 【新規追加】最後のリンクの区切り線を削除 */
 .nav-links li:last-child {
     border-right: none;
 }
@@ -88,7 +85,7 @@ ul {
 
 /* Sections */
 .section {
-    /* 【修正2】モバイルでの横幅オーバーを防ぐため、左右のパディングを縮小 (2rem -> 1rem) */
+    /* モバイルでの横幅オーバーを防ぐため、左右のパディングを縮小 (2rem -> 1rem) */
     padding: 4rem 1rem; 
     max-width: 1200px;
     margin: 0 auto;
@@ -99,11 +96,10 @@ h2,
 h3 {
     color: var(--accent-color);
     margin-bottom: 1rem;
-    /* 【修正】セクション見出しを中央寄せにする */
+    /* セクション見出しを中央寄せにする */
     text-align: center;
 }
 
-/* 【変更点2】h2の見出しサイズを大きくしてメリハリをつける */
 h2 {
     font-size: 2.5rem; 
 }
@@ -115,18 +111,14 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Center content */
     /* 左右のパディングを10%から、モバイルでも安全な5%に修正 */
     padding: 0 5%; 
     padding-top: 60px;
-    /* Navbar height */
     text-align: center;
-    /* Center text */
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://kawakami240743.github.io/Portfolio/Assets/BackGround.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* Parallax effect */
 }
 
 .hero-content {
@@ -140,7 +132,6 @@ h2 {
     object-fit: contain;
     margin-bottom: 2rem;
     border-radius: 50%;
-    /* Optional: make it circular if it's a logo */
     border: 3px solid var(--highlight-color);
     box-shadow: 0 0 20px rgba(76, 150, 156, 0.5);
     animation: float 6s ease-in-out infinite;
@@ -160,9 +151,7 @@ h2 {
     }
 }
 
-/* 【変更点3】ヒーローセクションh1のサイズを縮小 */
 .hero-content h1 {
-    /* 3.5remから2.8remに縮小 */
     font-size: 2.8rem;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -173,20 +162,16 @@ h2 {
     color: var(--highlight-color);
 }
 
-/* 【変更点4】タイピングエフェクトのテキストサイズを縮小 */
 .typing-effect {
     font-family: var(--font-code);
-    /* 1.5remから1.2remに縮小 */
     font-size: 1.2rem;
     margin-bottom: 2rem;
     color: #fff;
-    /* White text for better contrast */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .cta-button {
     display: inline-block;
-    /* 0.8rem 2rem から 0.7rem 1.8remに微調整 */
     padding: 0.7rem 1.8rem;
     background-color: var(--highlight-color);
     color: #fff;
@@ -201,112 +186,61 @@ h2 {
     background-color: #3a7a80;
 }
 
-/* .hero-image removed */
 
 /* About Section */
 .about-content {
-    /* 1.1remから1remに微調整 */
     font-size: 1rem;
     max-width: 800px;
     color: #ddd;
-    /* 【修正】コンテンツ全体を中央寄せにする */
+    /* コンテンツ全体を中央寄せにする */
     text-align: center;
-    margin: 0 auto; /* 中央寄せを維持 */
+    margin: 0 auto;
 }
 
 
 .about-content p {
     margin-bottom: 1rem;
-    /* 【修正】中央寄せでも行が長くなりすぎないよう幅を狭くする */
+    /* 中央寄せでも行が長くなりすぎないよう幅を狭くする */
     max-width: 600px;
     margin: 0.5rem auto 1rem auto; /* 中央寄せ */
 }
 
-/* 【新規追加】技術スタックのタイトルとリストのスタイル */
+/* 技術スタックのタイトルとリストのスタイル */
 .skills-title {
-    font-size: 1.5rem; /* タイトルを大きく */
+    font-size: 1.5rem;
     color: var(--highlight-color);
     margin-top: 2rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--surface-color); /* 下線で区切り感を出す */
-    /* 【修正】タイトルも中央寄せにする */
+    border-bottom: 2px solid var(--surface-color);
     text-align: center; 
 }
 
-/* 【変更】skills-listをulの箇条書きスタイルに変更 */
+/* skills-list */
 .skills-list {
-    list-style: disc; /* 標準の黒丸を使用 */
+    list-style: disc;
     margin-bottom: 2rem;
     font-family: var(--font-code);
     font-size: 1rem;
     color: var(--accent-color);
     background-color: var(--surface-color);
-    padding: 1.5rem 2rem; /* paddingを調整 */
-    padding-left: 3rem; /* 箇条書きのために左のパディングを増やす */
+    padding: 1.5rem 2rem;
+    padding-left: 3rem;
     border-radius: 8px;
-    border: 1px solid var(--highlight-color); /* borderをハイライトカラーにしてクール感を出す */
+    border: 1px solid var(--highlight-color);
     
-    /* 【修正】リストボックス自体を中央寄せにする */
+    /* リストボックス自体を中央寄せにする */
     max-width: 600px;
     margin: 0 auto 2rem auto;
-    /* 【修正】中央寄せにしたので、リストアイテムを左寄せに戻す */
+    /* 中央寄せにしたので、リストアイテムを左寄せに戻す */
     text-align: left;
 }
 
 .skills-list li {
-    margin-bottom: 0.5rem; /* 各項目の間にスペース */
-    padding-left: 0.5rem; /* 箇条書きのインデントを調整 */
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
 }
 
-/* 【削除】PCモードでのアイコン配置/FlexboxのMedia Queryを削除 */
-/* Media Query: PC/タブレットサイズ (769px以上) */
-/*
-@media (min-width: 769px) {
-    .about-content {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 4rem; 
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .profile-icon {
-        width: 160px;
-        height: 160px;
-        order: 2;
-        margin-bottom: 0;
-        flex-shrink: 0;
-    }
-    
-    .about-text-content {
-        order: 1;
-        max-width: 600px;
-    }
-}
-*/
-/* -------------------------------------- */
-
-
-/* Skills Section (以降のスタイルは変更なし) */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.skill-card {
-    background-color: var(--surface-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #444;
-    transition: transform 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--highlight-color);
-}
 
 /* Projects Section */
 /* 【修正】モバイルでは1列、PCでは2列に固定するための修正 */
@@ -322,7 +256,7 @@ h2 {
 /* PCサイズでのグリッド設定 */
 @media (min-width: 769px) {
     .projects-grid {
-        /* 【修正】PCでは最大幅を増やし、2列に固定 */
+        /* PCでは最大幅を増やし、2列に固定 */
         grid-template-columns: repeat(2, 1fr);
         max-width: 1000px; /* 2列表示で広めに取る */
     }
@@ -331,7 +265,7 @@ h2 {
 
 .project-card {
     background-color: var(--surface-color);
-    /* 【強化1】角丸を大きくする */
+    /* 角丸を大きくする */
     border-radius: 12px; 
     overflow: hidden;
     border: 1px solid #444;
@@ -340,43 +274,20 @@ h2 {
 
 .project-card:hover {
     transform: translateY(-8px); /* 浮き上がりを強くする */
-    /* 【強化2】シャドウをハイライトカラーで目立たせる */
+    /* シャドウをハイライトカラーで目立たせる */
     box-shadow: 0 15px 30px rgba(76, 150, 156, 0.4); 
     border-color: var(--highlight-color);
 }
 
-/* 【削除】画像表示のスタイルを削除し、動画のスタイルを追加 */
 .project-main-image {
-    /* 元の画像表示スタイルを削除 */
-    display: none; 
+    /* 【作品一覧画像】高さを確保し、表示を有効にする */
+    height: 200px; 
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #444;
+    border-top-left-radius: 12px; 
+    border-top-right-radius: 12px; 
 }
-
-
-/* 【新規追加】レスポンシブ動画埋め込みコンテナのスタイル */
-.video-container {
-    position: relative;
-    width: 100%;
-    /* アスペクト比 16:9 を維持するためにパディングを設定 */
-    padding-top: 56.25%; /* (9/16) * 100% */
-    margin-bottom: 3rem;
-    border-radius: 8px; /* 角丸を維持 */
-    overflow: hidden;
-    /* 【追加】動画を中央に寄せるための設定 */
-    max-width: 100%; /* 親要素の幅を超えないようにする */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #444;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-/* ------------------------------------------- */
 
 .project-info {
     padding: 1.5rem;
@@ -384,17 +295,16 @@ h2 {
 
 .project-info h3 {
     color: var(--accent-color);
-    /* 【修正】h3(作品名)も中央寄せにする */
+    /* 作品名も中央寄せにする */
     text-align: center;
     margin-bottom: 0.5rem;
 }
 
 .project-info p {
-    /* 0.95remから0.9remに微調整 */
     font-size: 0.9rem;
     margin-bottom: 1rem;
     color: #ccc;
-    /* 【修正】p(説明文)も中央寄せにする */
+    /* 説明文も中央寄せにする */
     text-align: center;
 }
 
@@ -402,7 +312,7 @@ h2 {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-    /* 【修正5】タグを中央寄せにする */
+    /* タグを中央寄せにする */
     justify-content: center;
 }
 
@@ -411,11 +321,10 @@ h2 {
     color: var(--highlight-color);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
-    /* 0.8remから0.75remに微調整 */
     font-size: 0.75rem;
     font-family: var(--font-code);
     border: 1px solid #444;
-    /* 【強化4】ホバーエフェクトを追加 */
+    /* ホバーエフェクトを追加 */
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -425,49 +334,12 @@ h2 {
 }
 
 
-/* Contact Section */
-/* 【削除】コンタクトセクションのスタイルを全て削除 */
-/*
-.contact-container {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    border: 1px solid #444;
-    max-width: 600px; 
-    margin: 0 auto;
-}
-
-.contact-container p {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-}
-
-.social-links {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.social-links a {
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.social-links a:hover {
-    color: var(--highlight-color);
-}
-*/
-
-
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem;
     background-color: #1a1a1a;
     color: #666;
-    /* 0.9remから0.8remに微調整 */
     font-size: 0.8rem;
     border-top: 1px solid #333;
 }
@@ -501,6 +373,8 @@ footer {
     transition-delay: 0.4s;
 }
 
+
+/* --- Project Detail Page Specific Styles --- */
 .project-detail {
     padding-top: 80px;
     max-width: 1000px;
@@ -515,7 +389,6 @@ footer {
 }
 
 .project-header h1 {
-    /* 2.5remから2remに縮小 */
     font-size: 2rem;
     color: var(--highlight-color);
 }
@@ -524,16 +397,28 @@ footer {
     padding: 0 2rem;
 }
 
-.project-main-image {
+/* 【重要: 動画コンテナのスタイル】 */
+.video-container {
+    position: relative;
     width: 100%;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
+    /* アスペクト比 16:9 を維持 */
+    padding-top: 56.25%;
     margin-bottom: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border: 1px solid #444;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    display: none; /* YouTube埋め込みを使用する場合は非表示にする */
 }
 
 .project-description h2,
@@ -546,7 +431,6 @@ footer {
 .project-description p,
 .project-description li {
     color: #ccc;
-    /* 1.1remから1remに微調整 */
     font-size: 1rem;
     margin-bottom: 1rem;
 }
@@ -559,54 +443,42 @@ footer {
 
 .project-gallery {
     margin-top: 4rem;
-    /* 【新規追加】画像を隠すための設定 */
     overflow: hidden;
 }
 
-/* 【新規追加】スライドショーコンテナ */
-.slider-track {
-    width: 100%;
-    overflow: hidden; /* 子要素のoverflow hiddenを無効にするため、ここはautoにする */
-}
-
-/* 【新規追加】ギャラリーのグリッドをフレックスコンテナに変更し、アニメーションを適用 */
 .gallery-grid {
-    /* 【修正】グリッド表示を解除し、フレックスコンテナに変更 */
+    /* JS自動スクロール用設定 */
     display: flex; 
-    flex-wrap: nowrap; /* 折り返し禁止 */
-    overflow-x: auto; /* スクロールバーは表示するが、JSで操作する */
-    -webkit-overflow-scrolling: touch; /* スムーズなスクロールのための設定 */
-    scroll-behavior: smooth; /* JSによるスクロールを滑らかにする */
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
     
-    /* CSSアニメーション関連の幅設定を削除 */
     width: auto; 
     animation: none; 
     
-    gap: 1.5rem; /* 1.5rem = 24px を想定 */
+    gap: 1.5rem;
     margin-top: 1.5rem;
     
-    /* スクロールバーを非表示にする (見た目をきれいに) */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    /* スクロールバーを非表示 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* スクロールバーを非表示にするためのWebkit用 */
 .gallery-grid::-webkit-scrollbar {
     display: none;
 }
 
 .gallery-item {
-    /* 【修正】アイテムの幅を固定 (モバイルでもPCでも300px + 縮小禁止) */
     min-width: 300px;
     width: 300px;
-    flex-shrink: 0; /* 縮小させない */
+    flex-shrink: 0;
     
     height: 200px;
     background-color: #333;
     border-radius: 8px;
     border: 1px solid #444;
 }
-/* ------------------------------------------- */
 
 .back-link {
     margin-top: 4rem;
@@ -620,7 +492,7 @@ footer {
 }
 
 .project-card-link:hover {
-    transform: translateY(-8px); /* project-cardに合わせて変更 */
+    transform: translateY(-8px);
 }
 
 .project-card-link .project-card {
