@@ -94,7 +94,7 @@ padding: 0 5%;
 padding-top: 60px;
 text-align: center;
 / 背景画像パスを修正: BackGround.png (PNG形式) */
-background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.google.com/search?q=https://kawakami240743.github.io/Portfolio/Assets/BackGround.png');
+background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://kawakami240743.github.io/Portfolio/Assets/Icon.png");
 background-size: cover;
 background-position: center;
 background-attachment: fixed;
