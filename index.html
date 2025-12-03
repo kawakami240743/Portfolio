@@ -1,482 +1,194 @@
-:root {
-    --bg-color: #202020;
-    --surface-color: #383838;
-    --text-color: #C4C4C4;
-    --highlight-color: #4C969C;
-    /* Unity-ish teal/blue */
-    --accent-color: #E0E0E0;
-    --font-main: 'Inter', 'Noto Sans JP', sans-serif;
-    --font-code: 'JetBrains Mono', monospace;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* * 【変更点1】
- * htmlの基本フォントサイズをさらに小さく調整し、スマホサイズでの一行表示を試みる。
- * 最小値を 10px に変更。
- */
-html {
-    font-size: calc(10px + 0.4vw); 
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-main);
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-ul {
-    list-style: none;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: rgba(32, 32, 32, 0.95);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--surface-color);
-}
-
-.logo {
-    font-family: var(--font-code);
-    font-weight: 700;
-    /* 1.2remから1.1remに微調整 */
-    font-size: 1.1rem; 
-    color: var(--highlight-color);
-}
-
-.nav-links {
-    display: flex;
-    gap: 0; /* gapを0にして、代わりにliのpaddingとborderで間隔を制御 */
-}
-
-/* 【新規追加】ナビゲーションリンク間に区切り線を追加 */
-.nav-links li {
-    padding: 0 1rem; /* リンク間のスペースを制御 */
-    border-right: 1px solid var(--surface-color); /* 区切り線 */
-}
-
-/* 【新規追加】最後のリンクの区切り線を削除 */
-.nav-links li:last-child {
-    border-right: none;
-}
-/* -------------------------------------- */
-
-.nav-links a:hover {
-    color: var(--highlight-color);
-}
-
-/* Sections */
-.section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-h1,
-h2,
-h3 {
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-/* 【変更点2】h2の見出しサイズを大きくしてメリハリをつける */
-h2 {
-    font-size: 2.5rem; 
-}
-
-
-/* Hero Section */
-.hero-section {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Center content */
-    padding: 0 10%;
-    padding-top: 60px;
-    /* Navbar height */
-    text-align: center;
-    /* Center text */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://kawakami240743.github.io/Portfolio/Assets/BackGround.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    /* Parallax effect */
-}
-
-.hero-content {
-    max-width: 800px;
-    z-index: 1;
-}
-
-.hero-logo {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 2rem;
-    border-radius: 50%;
-    /* Optional: make it circular if it's a logo */
-    border: 3px solid var(--highlight-color);
-    box-shadow: 0 0 20px rgba(76, 150, 156, 0.5);
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-/* 【変更点3】ヒーローセクションh1のサイズを縮小 */
-.hero-content h1 {
-    /* 3.5remから2.8remに縮小 */
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.highlight {
-    color: var(--highlight-color);
-}
-
-/* 【変更点4】タイピングエフェクトのテキストサイズを縮小 */
-.typing-effect {
-    font-family: var(--font-code);
-    /* 1.5remから1.2remに縮小 */
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #fff;
-    /* White text for better contrast */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.cta-button {
-    display: inline-block;
-    /* 0.8rem 2rem から 0.7rem 1.8remに微調整 */
-    padding: 0.7rem 1.8rem;
-    background-color: var(--highlight-color);
-    color: #fff;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    background-color: #3a7a80;
-}
-
-/* .hero-image removed */
-
-/* About Section */
-.about-content {
-    /* 1.1remから1remに微調整 */
-    font-size: 1rem;
-    max-width: 800px;
-    color: #ddd;
-}
-
-.about-content p {
-    margin-bottom: 1rem;
-}
-
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.skill-card {
-    background-color: var(--surface-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #444;
-    transition: transform 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--highlight-color);
-}
-
-.skill-card h3 {
-    /* 1.1remから1remに微調整 */
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.skill-bar {
-    height: 8px;
-    background-color: #222;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-bar .fill {
-    height: 100%;
-    background-color: var(--highlight-color);
-    border-radius: 4px;
-    transition: width 1s ease-in-out;
-}
-
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #444;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    border-color: var(--highlight-color);
-}
-
-.project-main-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    border-bottom: 1px solid #444;
-}
-
-.project-info {
-    padding: 1.5rem;
-}
-
-.project-info h3 {
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-}
-
-.project-info p {
-    /* 0.95remから0.9remに微調整 */
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    color: #ccc;
-}
-
-.tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.tags span {
-    background-color: #222;
-    color: var(--highlight-color);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    /* 0.8remから0.75remに微調整 */
-    font-size: 0.75rem;
-    font-family: var(--font-code);
-    border: 1px solid #444;
-}
-
-/* Contact Section */
-.contact-container {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    border: 1px solid #444;
-}
-
-.contact-container p {
-    /* 1.2remから1remに微調整 */
-    font-size: 1rem;
-    margin-bottom: 2rem;
-}
-
-.social-links {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.social-links a {
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.social-links a:hover {
-    color: var(--highlight-color);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #1a1a1a;
-    color: #666;
-    /* 0.9remから0.8remに微調整 */
-    font-size: 0.8rem;
-    border-top: 1px solid #333;
-}
-
-/* Animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered delay for children if needed */
-.delay-100 {
-    transition-delay: 0.1s;
-}
-
-.delay-200 {
-    transition-delay: 0.2s;
-}
-
-.delay-300 {
-    transition-delay: 0.3s;
-}
-
-.delay-400 {
-    transition-delay: 0.4s;
-}
-
-.project-detail {
-    padding-top: 80px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-bottom: 4rem;
-}
-
-.project-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding: 0 2rem;
-}
-
-.project-header h1 {
-    /* 2.5remから2remに縮小 */
-    font-size: 2rem;
-    color: var(--highlight-color);
-}
-
-.project-content {
-    padding: 0 2rem;
-}
-
-.project-main-image {
-    width: 100%;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    margin-bottom: 3rem;
-    border: 1px solid #444;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.project-description h2,
-.project-description h3 {
-    color: var(--accent-color);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.project-description p,
-.project-description li {
-    color: #ccc;
-    /* 1.1remから1remに微調整 */
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.project-description ul {
-    list-style: disc;
-    padding-left: 2rem;
-    margin-bottom: 2rem;
-}
-
-.project-gallery {
-    margin-top: 4rem;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.gallery-item {
-    height: 200px;
-    background-color: #333;
-    border-radius: 8px;
-    border: 1px solid #444;
-}
-
-.back-link {
-    margin-top: 4rem;
-    text-align: center;
-}
-
-/* Link Wrapper for Cards */
-.project-card-link {
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.project-card-link:hover {
-    transform: translateY(-5px);
-}
-
-.project-card-link .project-card {
-    height: 100%;
-    transition: border-color 0.3s ease;
-}
-
-.project-card-link:hover .project-card {
-    border-color: var(--highlight-color);
-    transform: none;
-    /* Reset inner transform to avoid double effect */
-}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity エンジニア ポートフォリオ</title>
+    
+    <!-- CSSファイルをGitHub PagesのURLに修正 -->
+    <link rel="stylesheet" href="https://kawakami240743.github.io/Portfolio/css/style.css"> 
+    
+    <!-- Google Fonts の設定 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="logo">PORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="#hero">ホーム</a></li>
+            <li><a href="#about">私について</a></li>
+            <li><a href="#projects">作品</a></li>
+            <li><a href="#contact">コンタクト</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- ヒーローセクション -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <!-- ロゴ画像 (Icon.png) のパスをAssets/Icon.pngに修正 -->
+                <img 
+                    src="https://kawakami240743.github.io/Portfolio/Assets/Icon.png" 
+                    alt="ロゴアイコン" 
+                    class="hero-logo"
+                    onerror="this.onerror=null; this.src='https://placehold.co/150x150/4C969C/ffffff?text=Icon+Error';"
+                >
+                <h1><span class="highlight">Unity</span>で世界を創る</h1>
+                <!-- ★注意: js/main.jsの内容に合わせて、このテキストはJSによって上書きされます -->
+                <p class="typing-effect">ゲーム開発者</p>
+                <a href="#projects" class="cta-button">作品を見る</a>
+            </div>
+        </section>
+
+        <!-- 私についてセクション -->
+        <section id="about" class="section animate-on-scroll">
+            <h2>私について</h2>
+            <div class="about-content">
+                <p>Unity歴2年のゲーム開発者です。主にゲームプレイプログラミングを得意としています。</p>
+                <p>このポートフォリオサイトでは、これまでに制作した作品を紹介しています。プレイヤーに楽しんでもらえるゲーム作りを目指して日々学習しています。</p>
+                <p>得意な技術スタック:</p>
+                <ul>
+                    <li>C#によるオブジェクト指向プログラミング</li>
+                    <li>Unity ECS/DOTS (データ指向技術)</li>
+                    <li>シェーダーグラフとHDRPによるビジュアル表現</li>
+                    <li>モバイル/VRプラットフォーム向け最適化</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 作品セクション -->
+        <section id="projects" class="section">
+            <h2 class="animate-on-scroll">作品</h2>
+            <div class="projects-grid">
+                
+                <!-- プロジェクトカード 1 -->
+                <a href="project1.html" class="project-card-link animate-on-scroll delay-100">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;">
+                            <img src="https://kawakami240743.github.io/Portfolio/Assets/project1.png" alt="サイバーパンク RPGのスクリーンショット"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x200/4C969C/ffffff?text=Cyberpunk+RPG';">
+                        </div>
+                        <div class="project-info">
+                            <h3>サイバーパンク RPG</h3>
+                            <p>Unity HDRPで構築された未来的なRPG。</p>
+                            <div class="tags"><span>Unity</span><span>C#</span><span>HDRP</span></div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- プロジェクトカード 2 -->
+                <a href="project2.html" class="project-card-link animate-on-scroll delay-200">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;">
+                            <img src="https://kawakami240743.github.io/Portfolio/Assets/project2.png" alt="VR スペースシューターのスクリーンショット"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x200/4C969C/ffffff?text=VR+Shooter';">
+                        </div>
+                        <div class="project-info">
+                            <h3>VR スペースシューター</h3>
+                            <p>Oculus Quest向けの没入型宇宙戦闘ゲーム。</p>
+                            <div class="tags"><span>Unity</span><span>VR</span><span>Oculus SDK</span></div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- プロジェクトカード 3 -->
+                <a href="project3.html" class="project-card-link animate-on-scroll delay-300">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;">
+                            <img src="https://kawakami240743.github.io/Portfolio/Assets/project3.png" alt="モバイルパズルゲームのスクリーンショット"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x200/4C969C/ffffff?text=Mobile+Puzzle';">
+                        </div>
+                        <div class="project-info">
+                            <h3>モバイルパズルゲーム</h3>
+                            <p>100万ダウンロードを達成した中毒性のあるパズルゲーム。</p>
+                            <div class="tags"><span>Unity 2D</span><span>Mobile</span><span>Ads</span></div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- プロジェクトカード 4 -->
+                <a href="project4.html" class="project-card-link animate-on-scroll delay-400">
+                    <div class="project-card">
+                        <div class="project-main-image" style="background-color: #444;">
+                            <img src="https://kawakami240743.github.io/Portfolio/Assets/project4.png" alt="マルチプレイヤー FPSのスクリーンショット"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x200/4C969C/ffffff?text=Multiplayer+FPS';">
+                        </div>
+                        <div class="project-info">
+                            <h3>マルチプレイヤー FPS</h3>
+                            <p>Photonを使用したリアルタイム対戦シューティング。</p>
+                            <div class="tags"><span>Unity</span><span>Photon</span><span>Multiplayer</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- コンタクトセクション -->
+        <section id="contact" class="section animate-on-scroll">
+            <h2>コンタクト</h2>
+            <div class="contact-container">
+                <p>一緒に働きませんか？ご連絡をお待ちしています。</p>
+                <a href="mailto:hello@example.com" class="cta-button">メールを送る</a>
+                <div class="social-links">
+                    <a href="https://github.com/kawakami240743">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2025 Unity Engineer Portfolio</p>
+    </footer>
+
+    <!-- JavaScriptファイルをGitHub PagesのURLに修正 -->
+    <script src="https://kawakami240743.github.io/Portfolio/js/main.js"></script>
+    
+    <!-- Firebase Auth Setup はインラインに残します -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        // 修正点: initialAuthToken の初期化時に、自分自身を参照するのではなく、
+        // グローバル変数 __initial_auth_token を参照するように修正しました。
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        if (Object.keys(firebaseConfig).length > 0) {
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+
+            (async () => {
+                try {
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                } catch (error) {
+                    console.error("Firebase Auth failed:", error);
+                }
+            })();
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    console.log("User signed in with UID:", user.uid);
+                } else {
+                    console.log("User signed out or anonymous.");
+                }
+            });
+        } else {
+             console.warn("Firebase configuration not found. Skipping Firebase initialization.");
+        }
+    </script>
+</body>
+
+</html>
