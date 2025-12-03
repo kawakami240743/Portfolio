@@ -5,7 +5,8 @@
 --highlight-color: #4C969C;
 /* Unity-ish teal/blue /
 --accent-color: #E0E0E0;
---font-main: 'Inter', 'Noto Sans JP', sans-serif;
+/ Noto Sans JP を Inter よりも優先し、日本語を確実に表示 /
+--font-main: 'Noto Sans JP', 'Inter', sans-serif;
 --font-code: 'JetBrains Mono', monospace;
 / ベースフォントサイズ (PC基準: 1rem = 16px) */
 font-size: 16px;
@@ -24,7 +25,7 @@ font-family: var(--font-main);
 line-height: 1.6;
 overflow-x: hidden;
 /* PC (1025px以上) の基準サイズ */
-font-size: 100px;
+font-size: 16px;
 }
 
 a {
@@ -55,7 +56,7 @@ border-bottom: 1px solid var(--surface-color);
 .logo {
 font-family: var(--font-code);
 font-weight: 700;
-font-size: 2.4rem; /* ★修正: 2rem -> 2.4rem に拡大 */
+font-size: 3rem; /* PC基準サイズ: 48px */
 color: var(--highlight-color);
 }
 
@@ -80,6 +81,7 @@ h2,
 h3 {
 color: var(--accent-color);
 margin-bottom: 1rem;
+font-family: var(--font-main); /* フォント適用を確実にするため明示 */
 }
 
 /* Hero Section */
@@ -109,8 +111,8 @@ text-align: center;
 }
 
 .hero-logo {
-width: 10rem;
-height: 10rem;
+width: 12rem; /* PC基準サイズ: 192px */
+height: 12rem;
 object-fit: contain;
 margin-bottom: 2rem;
 border-radius: 50%;
@@ -136,7 +138,7 @@ transform: translateY(0px);
 }
 
 .hero-content h1 {
-font-size: 5.5rem; /* ★修正: 4.5rem -> 5.5rem に拡大 */
+font-size: 7rem; /* PC基準サイズ: 112px */
 line-height: 1.2;
 margin-bottom: 1rem;
 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -148,7 +150,7 @@ color: var(--highlight-color);
 
 .typing-effect {
 font-family: var(--font-code);
-font-size: 2.2rem; /* ★修正: 2rem -> 2.2rem に拡大 /
+font-size: 2.5rem; /* PC基準サイズ: 40px /
 margin-bottom: 2rem;
 color: #fff;
 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -181,9 +183,9 @@ transform: translateY(-2px);
 background-color: #3a7a80;
 }
 
-/* About Section */
+/* About Section /
 .about-content {
-font-size: 1.1rem;
+font-size: 1.1rem; / PC基準サイズ */
 max-width: 800px;
 color: #ddd;
 margin: 0 auto;
@@ -200,7 +202,7 @@ margin-top: 1rem;
 margin-bottom: 1rem;
 }
 
-/* Projects Section /
+/* Projects Section (フォントサイズは body ベースのまま維持) /
 .projects-grid {
 / デスクトップ向け: 4列 */
 display: grid;
@@ -356,16 +358,21 @@ font-size: 0.9375rem; / 15px */
 
 /* Navbarロゴを調整 */
 .logo {
-    font-size: 1.8rem; /* 2.4rem -> 1.8rem */
+    font-size: 2.2rem; /* 3rem -> 2.2rem */
 }
 
-/* Hero Section: フォントサイズを調整 (5.5rem -> 4rem) */
+/* Hero Section: フォントサイズを調整 (7rem -> 5rem) */
 .hero-content h1 {
-    font-size: 4rem; 
+    font-size: 5rem; 
+}
+
+.hero-logo {
+    width: 10rem; /* 12rem -> 10rem */
+    height: 10rem;
 }
 
 .typing-effect {
-    font-size: 1.8rem; /* 2.2rem -> 1.8rem */
+    font-size: 2rem; /* 2.5rem -> 2rem */
 }
 
 /* Sections */
@@ -373,7 +380,7 @@ font-size: 0.9375rem; / 15px */
     padding: 4rem 3%; 
 }
 
-/* About Section: font-size: 1.1rem -> 1.05rem (相対的に少し縮小) */
+/* About Section: font-size: 1.1rem -> 1.05rem */
 .about-content {
     font-size: 1.05rem;
 }
@@ -413,9 +420,9 @@ font-size: 0.875rem; / 14px */
     font-size: 1.4rem; 
 }
 
-/* Hero Section: フォントサイズをさらに小さく (5.5rem -> 3rem) */
+/* Hero Section: フォントサイズをさらに小さく (7rem -> 3.5rem) */
 .hero-content h1 {
-    font-size: 3rem; 
+    font-size: 3.5rem; 
     word-break: keep-all; 
 }
 
@@ -453,7 +460,7 @@ h2 {
     gap: 1rem;
 }
 
-/* Projects Grid: 1列表示 - レイアウト調整は維持 */
+/* Projects Grid: 1列表示 */
 .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
