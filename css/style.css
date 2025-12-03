@@ -1,475 +1,443 @@
 :root {
---bg-color: #202020;
---surface-color: #383838;
---text-color: #C4C4C4;
---highlight-color: #4C969C;
-/* Unity-ish teal/blue /
---accent-color: #E0E0E0;
-/ Noto Sans JP を Inter よりも優先し、日本語を確実に表示 /
---font-main: 'Noto Sans JP', 'Inter', sans-serif;
---font-code: 'JetBrains Mono', monospace;
-/ ベースフォントサイズ (PC基準: 1rem = 16px) */
-font-size: 16px;
+    --bg-color: #202020;
+    --surface-color: #383838;
+    --text-color: #C4C4C4;
+    --highlight-color: #4C969C;
+    /* Unity-ish teal/blue */
+    --accent-color: #E0E0E0;
+    --font-main: 'Inter', 'Noto Sans JP', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
 }
 
-{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-background-color: var(--bg-color);
-color: var(--text-color);
-font-family: var(--font-main);
-line-height: 1.6;
-overflow-x: hidden;
-/* PC (1025px以上) の基準サイズ */
-font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
 }
 
 a {
-text-decoration: none;
-color: inherit;
-transition: color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
 }
 
 ul {
-list-style: none;
+    list-style: none;
 }
 
-/* Navbar /
+/* Navbar */
 .navbar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem 5%; / 相対的なパディング */
-background-color: rgba(32, 32, 32, 0.95);
-position: fixed;
-width: 100%;
-top: 0;
-z-index: 1000;
-backdrop-filter: blur(10px);
-border-bottom: 1px solid var(--surface-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(32, 32, 32, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--surface-color);
 }
 
 .logo {
-font-family: var(--font-code);
-font-weight: 700;
-font-size: 2rem; /* PC基準サイズ: 32px (画像に合わせる) */
-color: var(--highlight-color);
+    font-family: var(--font-code);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--highlight-color);
 }
 
 .nav-links {
-display: flex;
-gap: 2rem;
+    display: flex;
+    gap: 2rem;
 }
 
 .nav-links a:hover {
-color: var(--highlight-color);
+    color: var(--highlight-color);
 }
 
-/* Sections /
+/* Sections */
 .section {
-padding: 6rem 5%; / 上下のパディングを大きく、左右は相対値 */
-max-width: 1200px;
-margin: 0 auto;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1,
 h2,
 h3 {
-color: var(--accent-color);
-margin-bottom: 1rem;
-font-family: var(--font-main); /* フォント適用を確実にするため明示 */
+    color: var(--accent-color);
+    margin-bottom: 1rem;
 }
 
-/* Hero Section /
+/* Hero Section */
 .hero-section {
-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 0 5%;
-padding-top: 60px;
-text-align: center;
-/ 背景画像パスを修正: BackGround.png (PNG形式) */
-background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://kawakami240743.github.io/Portfolio/Assets/Icon.png");
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center content */
+    padding: 0 10%;
+    padding-top: 60px;
+    /* Navbar height */
+    text-align: center;
+    /* Center text */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax effect */
 }
 
 .hero-content {
-max-width: 800px;
-z-index: 1;
-width: 100%;
-margin: 0 auto;
-/* ★修正点: 中央寄せを確実に実行する Flexbox 設定 /
-display: flex;
-flex-direction: column;
-align-items: center; / 子要素を水平方向中央に配置 */
-text-align: center;
+    max-width: 800px;
+    z-index: 1;
 }
 
 .hero-logo {
-width: 10rem; /* PC基準サイズ: 160px (画像に合わせる) */
-height: 10rem;
-object-fit: contain;
-margin-bottom: 2rem;
-border-radius: 50%;
-border: 3px solid var(--highlight-color);
-box-shadow: 0 0 20px rgba(76, 150, 156, 0.5);
-animation: float 6s ease-in-out infinite;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+    border-radius: 50%;
+    /* Optional: make it circular if it's a logo */
+    border: 3px solid var(--highlight-color);
+    box-shadow: 0 0 20px rgba(76, 150, 156, 0.5);
+    animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
-0% {
-transform: translateY(0px);
-}
+    0% {
+        transform: translateY(0px);
+    }
 
-50% {
-    transform: translateY(-10px);
-}
+    50% {
+        transform: translateY(-10px);
+    }
 
-100% {
-    transform: translateY(0px);
-}
-
-
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero-content h1 {
-font-size: 4.5rem; /* PC基準サイズ: 72px (画像に合わせる) */
-line-height: 1.2;
-margin-bottom: 1rem;
-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .highlight {
-color: var(--highlight-color);
+    color: var(--highlight-color);
 }
 
 .typing-effect {
-font-family: var(--font-code);
-font-size: 1.4rem; /* PC基準サイズ: 22.4px (画像に合わせる) /
-margin-bottom: 2rem;
-color: #fff;
-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-}
-/ main.jsと連携するためのカーソルスタイル */
-.typing-effect .cursor {
-display: inline-block;
-opacity: 1;
-animation: blink-cursor 0.75s step-end infinite;
-}
-
-@keyframes blink-cursor {
-0%, 100% { opacity: 1; }
-50% { opacity: 0; }
+    font-family: var(--font-code);
+    font-size: 1.5rem;
+    /* Slightly larger */
+    margin-bottom: 2rem;
+    color: #fff;
+    /* White text for better contrast */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .cta-button {
-display: inline-block;
-padding: 0.8rem 2rem;
-background-color: var(--highlight-color);
-color: #fff;
-border-radius: 4px;
-font-weight: 600;
-transition: transform 0.2s ease, background-color 0.2s ease;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--highlight-color);
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button:hover {
-transform: translateY(-2px);
-background-color: #3a7a80;
+    transform: translateY(-2px);
+    background-color: #3a7a80;
 }
 
-/* About Section /
+/* .hero-image removed */
+
+/* About Section */
 .about-content {
-font-size: 1.1rem; / PC基準サイズ */
-max-width: 800px;
-color: #ddd;
-margin: 0 auto;
-text-align: left;
-}
-
-.about-content ul {
-list-style: disc;
-padding-left: 2rem;
-margin-top: 1rem;
+    font-size: 1.1rem;
+    max-width: 800px;
+    color: #ddd;
 }
 
 .about-content p {
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
-/* Projects Section (フォントサイズは body ベースのまま維持) /
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--highlight-color);
+}
+
+.skill-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.skill-bar {
+    height: 8px;
+    background-color: #222;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar .fill {
+    height: 100%;
+    background-color: var(--highlight-color);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+/* Projects Section */
 .projects-grid {
-/ デスクトップ向け: 4列 */
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 2rem;
-}
-
-.project-card-link {
-display: block;
-transition: transform 0.3s ease;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .project-card {
-background-color: var(--surface-color);
-border-radius: 8px;
-overflow: hidden;
-border: 1px solid #444;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-height: 100%;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #444;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card-link:hover .project-card {
-transform: translateY(-5px);
-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-border-color: var(--highlight-color);
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--highlight-color);
 }
 
 .project-main-image {
-height: 12.5rem;
-background-size: cover;
-background-position: center;
-border-bottom: 1px solid #444;
-}
-
-.project-main-image img {
-width: 100%;
-height: 100%;
-object-fit: cover;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #444;
 }
 
 .project-info {
-padding: 1.5rem;
+    padding: 1.5rem;
 }
 
 .project-info h3 {
-color: var(--accent-color);
-margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
 }
 
 .project-info p {
-font-size: 0.95rem; /* PC基準サイズを維持 */
-margin-bottom: 1rem;
-color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: #ccc;
 }
 
 .tags {
-display: flex;
-gap: 0.5rem;
-flex-wrap: wrap;
-justify-content: flex-start;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .tags span {
-background-color: #222;
-color: var(--highlight-color);
-padding: 0.2rem 0.6rem;
-font-size: 0.8rem;
-font-family: var(--font-code);
-border: 1px solid #444;
+    background-color: #222;
+    color: var(--highlight-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: var(--font-code);
+    border: 1px solid #444;
 }
 
 /* Contact Section */
 .contact-container {
-text-align: center;
-padding: 2rem;
-background-color: var(--surface-color);
-border-radius: 8px;
-border: 1px solid #444;
-margin: 0 auto;
-max-width: 600px;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    border: 1px solid #444;
 }
 
 .contact-container p {
-font-size: 1.2rem; /* PC基準サイズ */
-margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
 }
 
 .social-links {
-margin-top: 2rem;
-display: flex;
-justify-content: center;
-gap: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .social-links a {
-color: var(--text-color);
-font-weight: 600;
+    color: var(--text-color);
+    font-weight: 600;
 }
 
 .social-links a:hover {
-color: var(--highlight-color);
+    color: var(--highlight-color);
 }
 
 /* Footer */
 footer {
-text-align: center;
-padding: 2rem;
-background-color: #1a1a1a;
-color: #666;
-font-size: 0.9rem;
-border-top: 1px solid #333;
+    text-align: center;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
 }
 
-/* Animations for JS */
+/* Animations */
 .animate-on-scroll {
-opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .animate-on-scroll.visible {
-opacity: 1;
-transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
+/* Staggered delay for children if needed */
 .delay-100 {
-transition-delay: 0.1s;
+    transition-delay: 0.1s;
 }
 
 .delay-200 {
-transition-delay: 0.2s;
+    transition-delay: 0.2s;
 }
 
 .delay-300 {
-transition-delay: 0.3s;
+    transition-delay: 0.3s;
 }
 
 .delay-400 {
-transition-delay: 0.4s;
+    transition-delay: 0.4s;
 }
 
-/* ======================================= /
-/ レスポンシブ対応 (ブレークポイントによる調整) /
-/ ======================================= */
-
-/* タブレット・小画面デスクトップ (Max Width 1024px) /
-@media (max-width: 1024px) {
-/ ベースフォントサイズを縮小 (16px -> 15px) /
-body {
-font-size: 0.9375rem; / 15px */
+.project-detail {
+    padding-top: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
 }
 
-/* Navbarロゴを調整 */
-.logo {
-    font-size: 1.8rem; /* 2rem -> 1.8rem */
+.project-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
 }
 
-/* Hero Section: フォントサイズを調整 (4.5rem -> 3.5rem) */
-.hero-content h1 {
-    font-size: 3.5rem; 
+.project-header h1 {
+    font-size: 2.5rem;
+    color: var(--highlight-color);
 }
 
-.hero-logo {
-    width: 8rem; /* 10rem -> 8rem */
-    height: 8rem;
-}
-
-.typing-effect {
-    font-size: 1.4rem; /* 1.4rem を維持 */
-}
-
-/* Sections */
-.section {
-    padding: 4rem 3%; 
-}
-
-/* About Section: font-size: 1.1rem -> 1.05rem */
-.about-content {
-    font-size: 1.05rem;
-}
-
-/* Contact Section: font-size: 1.2rem -> 1.15rem */
-.contact-container p {
-    font-size: 1.15rem;
-}
-
-/* Projects Grid: 2列表示 - レイアウト調整は維持 */
-.projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-
-}
-
-/* スマートフォン (Max Width 640px) /
-@media (max-width: 640px) {
-/ ベースフォントサイズをさらに縮小 (16px -> 14px) /
-body {
-font-size: 0.875rem; / 14px */
-}
-
-/* Navbar: ナビゲーションリンクを非表示 */
-.nav-links {
-    display: none; 
-}
-
-.navbar {
-    padding: 1rem 1rem;
-}
-
-/* Navbarロゴはさらに小さく */
-.logo {
-    font-size: 1.3rem; 
-}
-
-/* Hero Section: フォントサイズをさらに小さく (4.5rem -> 2.5rem) */
-.hero-content h1 {
-    font-size: 2.5rem; 
-    word-break: keep-all; 
-}
-
-.hero-logo {
-    width: 6rem; 
-    height: 6rem;
-    margin-bottom: 1rem;
-}
-
-.typing-effect {
-    font-size: 1.1rem; 
-}
-
-/* Sections: パディングをタイトに */
-.section {
-    padding: 3rem 1rem;
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-}
-
-/* About Section: font-size: 1.1rem -> 1rem */
-.about-content {
-    font-size: 1rem;
-}
-
-/* Contact Section: font-size: 1.2rem -> 1rem */
-.contact-container p {
-    font-size: 1rem;
-}
-
-.social-links {
-    gap: 1rem;
-}
-
-/* Projects Grid: 1列表示 */
-.projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+.project-content {
+    padding: 0 2rem;
 }
 
 .project-main-image {
-    height: 10rem;
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    border: 1px solid #444;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+.project-description h2,
+.project-description h3 {
+    color: var(--accent-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
 
+.project-description p,
+.project-description li {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.project-description ul {
+    list-style: disc;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.project-gallery {
+    margin-top: 4rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-item {
+    height: 200px;
+    background-color: #333;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.back-link {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+/* Link Wrapper for Cards */
+.project-card-link {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-card-link:hover {
+    transform: translateY(-5px);
+}
+
+.project-card-link .project-card {
+    height: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.project-card-link:hover .project-card {
+    border-color: var(--highlight-color);
+    transform: none;
+    /* Reset inner transform to avoid double effect */
 }
