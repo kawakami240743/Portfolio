@@ -59,35 +59,51 @@ setTimeout(typeWriter, 1000);
 
 
 // ------------------------------------------------------------------
-// 【新規追加】ギャラリーの自動スクロール機能
+// 【修正】ギャラリーの自動スクロール機能（無限ループ対応）
 // ------------------------------------------------------------------
 
 function startImageCarousel() {
     const galleryGrid = document.querySelector('.project-gallery .gallery-grid');
     if (!galleryGrid) return;
 
-    const scrollSpeed = 2; // 1回のタイマーで移動するピクセル数
-    const intervalTime = 30; // ms (描画更新頻度)
+    const scrollSpeed = 0.5; // スムーズなスクロールのためのピクセル数を減らす
+    const intervalTime = 16; // 約60fps (スムーズなアニメーションのために間隔を短くする)
     let scrollInterval;
+    let isPaused = false;
+
+    // 最初の3枚（オリジナルコンテンツ）の幅を計算する
+    // ギャラリーアイテムが6枚あるため、前半3枚分の幅がコンテンツの総幅となる
+    const items = galleryGrid.querySelectorAll('.gallery-item');
+    if (items.length < 6) return; // 複製された画像がない場合は無限ループにしない
+
+    // 最初の3枚の幅 + 2枚分のギャップを計算 (簡略化のために1枚目のアイテム幅を使用)
+    const itemWidth = items[0].offsetWidth;
+    const gapWidth = 16; // style.cssのギャップ (1.5rem = 16px * 1.5 = 24px だが、ここでは一般的な16pxで仮定)
 
     // スムーズスクロールを停止するためのフラグ
-    let isPaused = false;
-    
+    const originalContentWidth = (itemWidth + gapWidth) * 3; 
+
     // スクロール処理を実行する関数
     const scroll = () => {
         if (isPaused) return;
 
-        // 右端に到達したかチェック (スクロール幅 >= 最大スクロール位置)
-        // scrollWidth: コンテンツ全体の幅
-        // clientWidth: 表示領域の幅
-        // scrollLeft: 現在のスクロール位置
-        if (galleryGrid.scrollLeft + galleryGrid.clientWidth >= galleryGrid.scrollWidth) {
-            // 右端に到達したら、アニメーションをリセットする
-            // CSSアニメーションのように無限ループに見せるため、最初の位置に戻す
+        // スクロール位置を更新
+        galleryGrid.scrollLeft += scrollSpeed;
+
+        // 【無限ループ判定】
+        // 現在のスクロール位置が、元のコンテンツ（最初の3枚）の幅を超えたら、
+        // ユーザーには見えない位置で即座にスクロール位置をリセットする
+        if (galleryGrid.scrollLeft >= originalContentWidth) {
+            // スムーズなリセットのために、scroll-behaviorを一時的に無効にする
+            galleryGrid.style.scrollBehavior = 'auto';
+            
+            // スクロール位置を最初のコンテンツの先頭に戻す
             galleryGrid.scrollLeft = 0; 
-        } else {
-            // 通常のスクロール
-            galleryGrid.scrollLeft += scrollSpeed;
+
+            // 次のフレームでscroll-behaviorを元に戻す
+            requestAnimationFrame(() => {
+                galleryGrid.style.scrollBehavior = 'smooth';
+            });
         }
     };
 
