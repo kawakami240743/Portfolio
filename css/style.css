@@ -55,7 +55,7 @@ border-bottom: 1px solid var(--surface-color);
 .logo {
 font-family: var(--font-code);
 font-weight: 700;
-font-size: 2rem; /* ★修正: 1.8rem -> 2rem に拡大 */
+font-size: 2rem; /* PC基準サイズ */
 color: var(--highlight-color);
 }
 
@@ -136,7 +136,7 @@ transform: translateY(0px);
 }
 
 .hero-content h1 {
-font-size: 4.5rem; /* ★修正: 4rem -> 4.5rem に拡大 */
+font-size: 4.5rem; /* PC基準サイズ */
 line-height: 1.2;
 margin-bottom: 1rem;
 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -148,7 +148,7 @@ color: var(--highlight-color);
 
 .typing-effect {
 font-family: var(--font-code);
-font-size: 2rem; /* ★修正: 1.8rem -> 2rem に拡大 /
+font-size: 2rem; /* PC基準サイズ /
 margin-bottom: 2rem;
 color: #fff;
 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -251,7 +251,7 @@ margin-bottom: 0.5rem;
 }
 
 .project-info p {
-font-size: 0.95rem;
+font-size: 0.95rem; /* PC基準サイズを維持 */
 margin-bottom: 1rem;
 color: #ccc;
 }
@@ -285,8 +285,8 @@ max-width: 600px;
 }
 
 .contact-container p {
+font-size: 1.2rem; /* PC基準サイズ */
 margin-bottom: 2rem;
-font-size: 1.2rem;
 }
 
 .social-links {
@@ -356,7 +356,7 @@ font-size: 0.9375rem; / 15px */
 
 /* Navbarロゴを調整 */
 .logo {
-    font-size: 1.7rem; /* 2rem -> 1.7rem */
+    font-size: 1.7rem; 
 }
 
 /* Hero Section: フォントサイズを調整 (4.5rem -> 3.5rem) */
@@ -365,7 +365,7 @@ font-size: 0.9375rem; / 15px */
 }
 
 .typing-effect {
-    font-size: 1.6rem; /* 2rem -> 1.6rem */
+    font-size: 1.6rem; 
 }
 
 /* Sections */
@@ -373,10 +373,20 @@ font-size: 0.9375rem; / 15px */
     padding: 4rem 3%; 
 }
 
-/* Projects Grid: 2列表示 */
+/* Projects Grid: 2列表示 - レイアウト調整は維持 */
 .projects-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
+}
+
+/* About Section: font-size: 1.1rem -> 1.05rem (相対的に少し縮小) */
+.about-content {
+    font-size: 1.05rem;
+}
+
+/* Contact Section: font-size: 1.2rem -> 1.15rem */
+.contact-container p {
+    font-size: 1.15rem;
 }
 
 
@@ -400,7 +410,7 @@ font-size: 0.875rem; / 14px */
 
 /* Navbarロゴはさらに小さく */
 .logo {
-    font-size: 1.4rem; /* 1.7rem -> 1.4rem */
+    font-size: 1.4rem; 
 }
 
 /* Hero Section: フォントサイズをさらに小さく (4.5rem -> 2.6rem) */
@@ -416,7 +426,7 @@ font-size: 0.875rem; / 14px */
 }
 
 .typing-effect {
-    font-size: 1.2rem; /* 1.6rem -> 1.2rem */
+    font-size: 1.2rem; 
 }
 
 /* Sections: パディングをタイトに */
@@ -429,7 +439,7 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-/* Projects Grid: 1列表示 */
+/* Projects Grid: 1列表示 - レイアウト調整は維持 */
 .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -439,12 +449,12 @@ h2 {
     height: 10rem;
 }
 
-/* About Section */
+/* About Section: font-size: 1.1rem -> 1rem */
 .about-content {
     font-size: 1rem;
 }
 
-/* Contact Section */
+/* Contact Section: font-size: 1.2rem -> 1rem */
 .contact-container p {
     font-size: 1rem;
 }
