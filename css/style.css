@@ -55,7 +55,7 @@ border-bottom: 1px solid var(--surface-color);
 .logo {
 font-family: var(--font-code);
 font-weight: 700;
-font-size: 2rem; /* PC基準サイズ */
+font-size: 2.4rem; /* ★修正: 2rem -> 2.4rem に拡大 */
 color: var(--highlight-color);
 }
 
@@ -136,7 +136,7 @@ transform: translateY(0px);
 }
 
 .hero-content h1 {
-font-size: 4.5rem; /* PC基準サイズ */
+font-size: 5.5rem; /* ★修正: 4.5rem -> 5.5rem に拡大 */
 line-height: 1.2;
 margin-bottom: 1rem;
 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -148,7 +148,7 @@ color: var(--highlight-color);
 
 .typing-effect {
 font-family: var(--font-code);
-font-size: 2rem; /* PC基準サイズ /
+font-size: 2.2rem; /* ★修正: 2rem -> 2.2rem に拡大 /
 margin-bottom: 2rem;
 color: #fff;
 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -356,27 +356,21 @@ font-size: 0.9375rem; / 15px */
 
 /* Navbarロゴを調整 */
 .logo {
-    font-size: 1.7rem; 
+    font-size: 1.8rem; /* 2.4rem -> 1.8rem */
 }
 
-/* Hero Section: フォントサイズを調整 (4.5rem -> 3.5rem) */
+/* Hero Section: フォントサイズを調整 (5.5rem -> 4rem) */
 .hero-content h1 {
-    font-size: 3.5rem; 
+    font-size: 4rem; 
 }
 
 .typing-effect {
-    font-size: 1.6rem; 
+    font-size: 1.8rem; /* 2.2rem -> 1.8rem */
 }
 
 /* Sections */
 .section {
     padding: 4rem 3%; 
-}
-
-/* Projects Grid: 2列表示 - レイアウト調整は維持 */
-.projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
 }
 
 /* About Section: font-size: 1.1rem -> 1.05rem (相対的に少し縮小) */
@@ -387,6 +381,12 @@ font-size: 0.9375rem; / 15px */
 /* Contact Section: font-size: 1.2rem -> 1.15rem */
 .contact-container p {
     font-size: 1.15rem;
+}
+
+/* Projects Grid: 2列表示 - レイアウト調整は維持 */
+.projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 
@@ -413,9 +413,9 @@ font-size: 0.875rem; / 14px */
     font-size: 1.4rem; 
 }
 
-/* Hero Section: フォントサイズをさらに小さく (4.5rem -> 2.6rem) */
+/* Hero Section: フォントサイズをさらに小さく (5.5rem -> 3rem) */
 .hero-content h1 {
-    font-size: 2.6rem; 
+    font-size: 3rem; 
     word-break: keep-all; 
 }
 
@@ -439,16 +439,6 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-/* Projects Grid: 1列表示 - レイアウト調整は維持 */
-.projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-.project-main-image {
-    height: 10rem;
-}
-
 /* About Section: font-size: 1.1rem -> 1rem */
 .about-content {
     font-size: 1rem;
@@ -461,6 +451,16 @@ h2 {
 
 .social-links {
     gap: 1rem;
+}
+
+/* Projects Grid: 1列表示 - レイアウト調整は維持 */
+.projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.project-main-image {
+    height: 10rem;
 }
 
 
