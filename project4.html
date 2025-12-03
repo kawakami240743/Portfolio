@@ -2,10 +2,11 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マルチプレイヤー FPS - 作品詳細</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>VR スペースシューター - 作品詳細</title>
+    
+    <link rel="stylesheet" href="https://kawakami240743.github.io/Portfolio/css/style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,50 +16,73 @@
 
 <body>
     <nav class="navbar">
-        <div class="logo">UNITY DEV</div>
+        <div class="logo">PORTFOLIO</div>
         <ul class="nav-links">
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="index.html#projects">作品一覧</a></li>
+            <li><a href="index.html#hero">ホーム</a></li>
+            <li><a href="index.html#about">私について</a></li>
+            <li><a href="index.html#projects">作品一覧へ戻る</a></li>
         </ul>
     </nav>
 
-    <main class="project-detail">
-        <header class="project-header">
-            <h1>マルチプレイヤー FPS</h1>
-            <div class="tags"><span>Unity</span><span>Photon</span><span>Multiplayer</span></div>
-        </header>
-
-        <section class="project-content">
-            <div class="project-main-image" style="background-color: #444;">
-                <!-- Placeholder for main project image -->
-            </div>
-
-            <div class="project-description">
-                <h2>プロジェクト概要</h2>
-                <p>Photon PUN2を使用した、最大10人対戦可能なオンラインFPSゲームです。チームデスマッチモードを搭載し、低遅延な同期を実現しました。</p>
-
-                <h3>担当箇所</h3>
-                <ul>
-                    <li>ネットワーク同期処理（位置、回転、アニメーション）</li>
-                    <li>ロビーシステムとマッチメイキングの実装</li>
-                    <li>ラグ補正とヒット判定の最適化</li>
-                </ul>
-
-                <h3>技術スタック</h3>
-                <p>Unity 2021 LTS, Photon PUN2, C#</p>
-            </div>
-
-            <div class="project-gallery">
-                <h3>ギャラリー</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-item" style="background-color: #555;"></div>
-                    <div class="gallery-item" style="background-color: #555;"></div>
-                    <div class="gallery-item" style="background-color: #555;"></div>
+    <main>
+        <section class="project-detail section">
+            <header class="project-header animate-on-scroll">
+                <h1 class="highlight">VR スペースシューター</h1>
+                <p>Oculus Quest向けの没入型宇宙戦闘ゲーム</p>
+                <div class="tags">
+                    <span>Unity</span><span>VR</span><span>Oculus SDK</span><span>C#</span>
                 </div>
-            </div>
+            </header>
 
-            <div class="back-link">
-                <a href="index.html#projects" class="cta-button">作品一覧に戻る</a>
+            <div class="project-content">
+                <!-- メイン動画埋め込み (IDをVR関連の動画に仮変更) -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1&controls=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        title="VR スペースシューター プロモーション動画">
+                    </iframe>
+                </div>
+
+                <div class="project-description">
+                    <h2>概要と目的</h2>
+                    <p>
+                        Oculus Questプラットフォーム向けに開発した、一人称視点の宇宙戦闘シミュレーションです。VRの特性を活かし、プレイヤーはコックピットに乗り込み、手動で操縦桿を操作して戦闘を行います。
+                    </p>
+
+                    <h2>主な役割と技術</h2>
+                    <ul>
+                        <li>**VRインタラクション**: Oculus Integration SDKを使用したコントローラー入力と、直感的なハンドトラッキング操作の実装。</li>
+                        <li>**物理エンジン**: 宇宙船の慣性と推進力、被弾時の挙動を再現する物理シミュレーションの実装。</li>
+                        <li>**最適化**: VR環境特有の厳しいパフォーマンス要件に対応するためのドローコール削減、バッチ処理、ライトベイクの徹底。</li>
+                    </ul>
+
+                    <h2>技術詳細</h2>
+                    <p>
+                        VR酔いを最小限に抑えるため、移動システムに工夫を凝らし、特に低スペックなモバイルVR環境でのフレームレート（72fps以上）を厳守しました。
+                        C#で開発された宇宙船のAIは、高度な追尾ロジックを持ち、プレイヤーに挑戦的なゲーム体験を提供します。
+                    </p>
+                </div>
+                
+                <div class="project-gallery">
+                    <h2>ギャラリー</h2>
+                    <p>開発中のスクリーンショットなどを展示するセクションです。（プレースホルダー画像）</p>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" style="background-image: url('https://placehold.co/300x200/4C969C/222222?text=VR+Cockpit'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://placehold.co/300x200/4C969C/222222?text=Space+Battle'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://placehold.co/300x200/4C969C/222222?text=Enemy+AI'); background-size: cover; background-position: center;"></div>
+                        <!-- 複製 -->
+                        <div class="gallery-item" style="background-image: url('https://placehold.co/300x200/4C969C/222222?text=VR+Cockpit'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://placehold.co/300x200/4C969C/222222?text=Space+Battle'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://placehold.co/300x200/4C969C/222222?text=Enemy+AI'); background-size: cover; background-position: center;"></div>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="index.html#projects" class="cta-button">作品一覧に戻る</a>
+                </div>
             </div>
         </section>
     </main>
@@ -67,7 +91,42 @@
         <p>&copy; 2025 Unity Engineer Portfolio</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="https://kawakami240743.github.io/Portfolio/js/main.js"></script>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        if (Object.keys(firebaseConfig).length > 0) {
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+
+            (async () => {
+                try {
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                } catch (error) {
+                    console.error("Firebase Auth failed:", error);
+                }
+            })();
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    console.log("User signed in with UID:", user.uid);
+                } else {
+                    console.log("User signed out or anonymous.");
+                }
+            });
+        } else {
+             console.warn("Firebase configuration not found. Skipping Firebase initialization.");
+        }
+    </script>
 </body>
 
 </html>
