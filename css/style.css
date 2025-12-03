@@ -55,7 +55,7 @@ border-bottom: 1px solid var(--surface-color);
 .logo {
 font-family: var(--font-code);
 font-weight: 700;
-font-size: 1.8rem; /* ★修正: 1.5rem -> 1.8rem に拡大 */
+font-size: 2rem; /* ★修正: 1.8rem -> 2rem に拡大 */
 color: var(--highlight-color);
 }
 
@@ -136,7 +136,7 @@ transform: translateY(0px);
 }
 
 .hero-content h1 {
-font-size: 4rem; /* ★修正: 3.5rem -> 4rem に拡大 */
+font-size: 4.5rem; /* ★修正: 4rem -> 4.5rem に拡大 */
 line-height: 1.2;
 margin-bottom: 1rem;
 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -148,7 +148,7 @@ color: var(--highlight-color);
 
 .typing-effect {
 font-family: var(--font-code);
-font-size: 1.8rem; /* ★修正: 1.5rem -> 1.8rem に拡大 /
+font-size: 2rem; /* ★修正: 1.8rem -> 2rem に拡大 /
 margin-bottom: 2rem;
 color: #fff;
 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -354,18 +354,18 @@ body {
 font-size: 0.9375rem; / 15px */
 }
 
-/* Hero Section: フォントサイズを調整 (4rem -> 3.2rem) */
-.hero-content h1 {
-    font-size: 3.2rem; /* PCより少し小さいサイズ */
+/* Navbarロゴを調整 */
+.logo {
+    font-size: 1.7rem; /* 2rem -> 1.7rem */
 }
 
-/* Navbarロゴは維持 */
-.logo {
-    font-size: 1.5rem; /* 1.8rem -> 1.5rem に戻す */
+/* Hero Section: フォントサイズを調整 (4.5rem -> 3.5rem) */
+.hero-content h1 {
+    font-size: 3.5rem; 
 }
 
 .typing-effect {
-    font-size: 1.4rem;
+    font-size: 1.6rem; /* 2rem -> 1.6rem */
 }
 
 /* Sections */
@@ -400,12 +400,12 @@ font-size: 0.875rem; / 14px */
 
 /* Navbarロゴはさらに小さく */
 .logo {
-    font-size: 1.3rem;
+    font-size: 1.4rem; /* 1.7rem -> 1.4rem */
 }
 
-/* Hero Section: フォントサイズをさらに小さく (4rem -> 2.4rem) */
+/* Hero Section: フォントサイズをさらに小さく (4.5rem -> 2.6rem) */
 .hero-content h1 {
-    font-size: 2.4rem; /* 小さくしつつ、視認性を維持 */
+    font-size: 2.6rem; 
     word-break: keep-all; 
 }
 
@@ -416,7 +416,7 @@ font-size: 0.875rem; / 14px */
 }
 
 .typing-effect {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* 1.6rem -> 1.2rem */
 }
 
 /* Sections: パディングをタイトに */
