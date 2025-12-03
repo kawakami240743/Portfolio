@@ -403,19 +403,19 @@ h2 {
 
 
 /* Contact Section */
+/* 【削除】コンタクトセクションのスタイルを全て削除 */
+/*
 .contact-container {
     text-align: center;
     padding: 2rem;
     background-color: var(--surface-color);
     border-radius: 8px;
     border: 1px solid #444;
-    /* 【新規追加】コンテナ自体を中央寄せにする */
     max-width: 600px; 
     margin: 0 auto;
 }
 
 .contact-container p {
-    /* 1.2remから1remに微調整 */
     font-size: 1rem;
     margin-bottom: 2rem;
 }
@@ -435,6 +435,8 @@ h2 {
 .social-links a:hover {
     color: var(--highlight-color);
 }
+*/
+
 
 /* Footer */
 footer {
