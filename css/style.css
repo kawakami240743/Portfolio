@@ -212,7 +212,7 @@ h2 {
     margin: 0 auto; /* 中央寄せ */
 }
 
-/* 【新規追加】プロフィールアイコンのスタイル */
+/* 【新規追加】プロフィールアイコンのスタイル (モバイル/デフォルト) */
 .profile-icon {
     width: 120px;
     height: 120px;
@@ -269,12 +269,15 @@ h2 {
         /* PCではアイコンとテキストを横並びにする */
         flex-direction: row;
         align-items: flex-start; /* アイコンとテキストの上端を揃える */
-        gap: 4rem; /* アイコンとテキスト間のスペースを広げる */
+        /* 【変更】gap: 4rem; から gap: 6rem; に変更し、間隔を広げる */
+        gap: 6rem; 
         max-width: 1000px; /* PCでの最大幅を広げる */
     }
 
+    /* 【新規追加】PCでのプロフィールアイコンのサイズを大きくする */
     .profile-icon {
-        /* PCでは左側に固定 */
+        width: 160px; /* 120pxから160pxに拡大 */
+        height: 160px;
         order: 2; /* 順序を2にして右側に移動 */
         margin-bottom: 0;
         /* テキストとアイコンの比率を調整 */
