@@ -4,10 +4,14 @@ console.log("Unity Engineer Portfolio Loaded");
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        // スムーススクロールを実行
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const targetId = this.getAttribute('href').substring(1); // #hero から hero を取得
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
@@ -15,19 +19,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1 // 要素が10%見えたらアニメーションを開始
+    threshold: 0.1
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // CSSの .animate-on-scroll.visible クラスを付与
             entry.target.classList.add('visible');
-            // 一度アニメーションしたら監視を停止したい場合は、以下の行を有効化
-            // observer.unobserve(entry.target); 
         } else {
-            // スクロールで戻ったときのためにクラスを削除（繰り返しアニメーションする場合）
-            entry.target.classList.remove('visible');
+            // ページ遷移が多いため、スクロールアニメーションは一度実行したら保持する方が自然な場合がある
+            // entry.target.classList.remove('visible'); 
         }
     });
 }, observerOptions);
@@ -42,18 +43,68 @@ const typingElement = document.querySelector('.typing-effect');
 let i = 0;
 
 function typeWriter() {
-    if (!typingElement) return; // エラーガード
+    if (!typingElement) return; // Guard clause for pages without typing effect
 
     if (i < text.length) {
-        // CSSの .cursor クラスと連携
         typingElement.innerHTML = text.substring(0, i + 1) + '<span class="cursor">|</span>';
         i++;
         setTimeout(typeWriter, 50);
     } else {
-        // 完了後、カーソルを削除してテキストを確定
-        typingElement.innerHTML = text; 
+        typingElement.innerHTML = text; // Remove cursor at end
     }
 }
 
 // Start typing effect after a slight delay
 setTimeout(typeWriter, 1000);
+
+
+// ------------------------------------------------------------------
+// 【新規追加】ギャラリーの自動スクロール機能
+// ------------------------------------------------------------------
+
+function startImageCarousel() {
+    const galleryGrid = document.querySelector('.project-gallery .gallery-grid');
+    if (!galleryGrid) return;
+
+    const scrollSpeed = 2; // 1回のタイマーで移動するピクセル数
+    const intervalTime = 30; // ms (描画更新頻度)
+    let scrollInterval;
+
+    // スムーズスクロールを停止するためのフラグ
+    let isPaused = false;
+    
+    // スクロール処理を実行する関数
+    const scroll = () => {
+        if (isPaused) return;
+
+        // 右端に到達したかチェック (スクロール幅 >= 最大スクロール位置)
+        // scrollWidth: コンテンツ全体の幅
+        // clientWidth: 表示領域の幅
+        // scrollLeft: 現在のスクロール位置
+        if (galleryGrid.scrollLeft + galleryGrid.clientWidth >= galleryGrid.scrollWidth) {
+            // 右端に到達したら、アニメーションをリセットする
+            // CSSアニメーションのように無限ループに見せるため、最初の位置に戻す
+            galleryGrid.scrollLeft = 0; 
+        } else {
+            // 通常のスクロール
+            galleryGrid.scrollLeft += scrollSpeed;
+        }
+    };
+
+    // 自動スクロールを開始
+    scrollInterval = setInterval(scroll, intervalTime);
+
+    // ホバー時にスクロールを停止・再開
+    galleryGrid.addEventListener('mouseenter', () => {
+        isPaused = true;
+    });
+
+    galleryGrid.addEventListener('mouseleave', () => {
+        isPaused = false;
+    });
+}
+
+// ドキュメント全体が読み込まれた後にカルーセルを開始
+window.onload = function() {
+    startImageCarousel();
+};
