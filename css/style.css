@@ -28,6 +28,8 @@ body {
     color: var(--text-color);
     font-family: var(--font-main);
     line-height: 1.6;
+    /* 【修正1】横方向のオーバーフローを非表示にし、横スクロールを防止 */
+    overflow-x: hidden;
 }
 
 a {
@@ -86,7 +88,8 @@ ul {
 
 /* Sections */
 .section {
-    padding: 4rem 2rem;
+    /* 【修正2】モバイルでの横幅オーバーを防ぐため、左右のパディングを縮小 (2rem -> 1rem) */
+    padding: 4rem 1rem; 
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -111,7 +114,8 @@ h2 {
     align-items: center;
     justify-content: center;
     /* Center content */
-    padding: 0 10%;
+    /* 左右のパディングを10%から、モバイルでも安全な5%に修正 */
+    padding: 0 5%; 
     padding-top: 60px;
     /* Navbar height */
     text-align: center;
