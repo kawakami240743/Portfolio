@@ -308,45 +308,40 @@ h2 {
     border-color: var(--highlight-color);
 }
 
-.skill-card h3 {
-    /* 1.1remから1remに微調整 */
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.skill-bar {
-    height: 8px;
-    background-color: #222;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-bar .fill {
-    height: 100%;
-    background-color: var(--highlight-color);
-    border-radius: 4px;
-    transition: width 1s ease-in-out;
-}
-
 /* Projects Section */
+/* 【修正】モバイルでは1列、PCでは2列に固定するための修正 */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* モバイルデフォルト: 1列 */
+    grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 650px; /* カードが1列で中央に寄るように最大幅を設定 */
+    margin: 0 auto;
 }
+
+/* PCサイズでのグリッド設定 */
+@media (min-width: 769px) {
+    .projects-grid {
+        /* 【修正】PCでは最大幅を増やし、2列に固定 */
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1000px; /* 2列表示で広めに取る */
+    }
+}
+
 
 .project-card {
     background-color: var(--surface-color);
-    border-radius: 8px;
+    /* 【強化1】角丸を大きくする */
+    border-radius: 12px; 
     overflow: hidden;
     border: 1px solid #444;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px); /* 浮き上がりを強くする */
+    /* 【強化2】シャドウをハイライトカラーで目立たせる */
+    box-shadow: 0 15px 30px rgba(76, 150, 156, 0.4); 
     border-color: var(--highlight-color);
 }
 
@@ -355,6 +350,9 @@ h2 {
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid #444;
+    /* 【強化3】画像の上側の角丸を継承する */
+    border-top-left-radius: 12px; 
+    border-top-right-radius: 12px; 
 }
 
 .project-info {
@@ -388,7 +386,15 @@ h2 {
     font-size: 0.75rem;
     font-family: var(--font-code);
     border: 1px solid #444;
+    /* 【強化4】ホバーエフェクトを追加 */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+.project-card:hover .tags span {
+    background-color: var(--highlight-color);
+    color: var(--bg-color); /* 背景色に合わせてテキストを暗くする */
+}
+
 
 /* Contact Section */
 .contact-container {
@@ -546,7 +552,7 @@ footer {
 }
 
 .project-card-link:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); /* project-cardに合わせて変更 */
 }
 
 .project-card-link .project-card {
