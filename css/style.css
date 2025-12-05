@@ -385,6 +385,14 @@ footer {
     text-align: left; 
 }
 
+/* 【修正】ヘッダー内のサブタイトルを中央寄せに設定 */
+.project-header p {
+    text-align: center;
+    margin-bottom: 1.5rem; 
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
 .project-description {
     /* project-description内のコンテンツを左寄せベースにする */
     text-align: left; 
@@ -393,7 +401,7 @@ footer {
 .project-description h2,
 .project-description h3 {
     color: var(--accent-color);
-    /* 【修正済み】全体の中央寄せを解除し、左寄せを強制 */
+    /* 中央寄せを解除し、左寄せを強制 */
     text-align: left; 
     
     /* マージンの調整: タイトル上の間隔を広げ、下の間隔は境界線のために確保 */
@@ -415,7 +423,7 @@ footer {
     color: #ccc;
     font-size: 1rem;
     margin-bottom: 1rem;
-    /* 【修正済み】本文を左寄せに設定 */
+    /* 本文を左寄せに設定 */
     text-align: left; 
 }
 
