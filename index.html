@@ -124,42 +124,6 @@
 
     <!-- JavaScriptファイルをGitHub PagesのURLに修正 -->
     <script src="https://kawakami240743.github.io/Portfolio/js/main.js"></script>
-    
-    <!-- Firebase Auth Setup はインラインに残しますが、Firebaseの設定がないため初期化はスキップされます -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        if (Object.keys(firebaseConfig).length > 0) {
-            const app = initializeApp(firebaseConfig);
-            const auth = getAuth(app);
-
-            (async () => {
-                try {
-                    if (initialAuthToken) {
-                        await signInWithCustomToken(auth, initialAuthToken);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-                } catch (error) {
-                    console.error("Firebase Auth failed:", error);
-                }
-            })();
-
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    console.log("User signed in with UID:", user.uid);
-                } else {
-                    console.log("User signed out or anonymous.");
-                }
-            });
-        } else {
-             console.warn("Firebase configuration not found. Skipping Firebase initialization.");
-        }
-    </script>
 </body>
 
 </html>
