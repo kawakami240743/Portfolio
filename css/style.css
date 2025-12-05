@@ -115,6 +115,7 @@ h2 {
     padding: 0 5%; 
     padding-top: 60px;
     text-align: center;
+    /* GitHub Pagesの背景画像URLを使用 */
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://kawakami240743.github.io/Portfolio/Assets/BackGround.png');
     background-size: cover;
     background-position: center;
@@ -279,8 +280,8 @@ h2 {
     border-color: var(--highlight-color);
 }
 
+/* 【作品一覧画像】高さを確保し、表示を有効にする */
 .project-main-image {
-    /* 【作品一覧画像】高さを確保し、表示を有効にする */
     height: 200px; 
     background-size: cover;
     background-position: center;
@@ -397,12 +398,62 @@ footer {
     padding: 0 2rem;
 }
 
-/* 【重要: 動画コンテナのスタイル】 */
+/* 【新規追加】詳細セクションの各コンテンツを囲むカードスタイル */
+.project-description .description-card {
+    background-color: var(--surface-color); /* ベース色より濃いめの背景 */
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--highlight-color); /* ハイライトカラーの枠線 */
+    box-shadow: 0 6px 15px rgba(76, 150, 156, 0.15); /* 控えめなハイライトシャドウ */
+    text-align: left; /* テキストを左寄せに戻す */
+}
+
+.project-description .description-card h2 {
+    /* カード内のH2を左寄せに戻し、ハイライトカラーにする */
+    text-align: left;
+    color: var(--highlight-color); 
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #444; /* セパレータ */
+}
+
+.project-description .description-card p {
+    /* カード内のPタグのテキストを左寄せに戻す */
+    text-align: left;
+    margin: 0 0 1rem 0;
+}
+
+.project-description .description-card ul {
+    /* カード内のULタグのスタイルを調整 */
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+    list-style: disc;
+}
+
+
+/* --- 既存の project-description 内のスタイルを上書きしないよう調整 --- */
+.project-description h2,
+.project-description h3 {
+    /* h2/h3は、カード内でのみスタイルを上書きするため、ここでは変更しない */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-description p,
+.project-description li {
+    /* p/liは、カード内でのみスタイルを上書きするため、ここでは変更しない */
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* 【動画・ギャラリーの共通スタイル】 */
 .video-container {
     position: relative;
     width: 100%;
-    /* アスペクト比 16:9 を維持 */
-    padding-top: 56.25%;
+    padding-top: 56.25%; /* アスペクト比 16:9 を維持 */
     margin-bottom: 3rem;
     border-radius: 8px;
     overflow: hidden;
@@ -421,33 +472,13 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.project-description h2,
-.project-description h3 {
-    color: var(--accent-color);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.project-description p,
-.project-description li {
-    color: #ccc;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.project-description ul {
-    list-style: disc;
-    padding-left: 2rem;
-    margin-bottom: 2rem;
-}
-
 .project-gallery {
     margin-top: 4rem;
     overflow: hidden;
 }
 
+/* JS自動スクロール用設定 */
 .gallery-grid {
-    /* JS自動スクロール用設定 */
     display: flex; 
     flex-wrap: nowrap;
     overflow-x: auto; 
